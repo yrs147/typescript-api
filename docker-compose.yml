@@ -1,0 +1,20 @@
+version: "3"
+services:
+  postgres:
+    image: postgres:alpine
+    container_name: postgres
+    environment:
+      POSTGRES_USER: yrs
+      POSTGRES_PASSWORD: test123
+      POSTGRES_DB: yrs_db
+    volumes:
+      - /data/yrs_db:/var/lib/postgresql/data
+    networks:
+      - overlay
+    ports:
+      - "5430:5430" 
+    command: -p 5430  
+volumes:
+  postgres-db:
+networks:
+  overlay:
